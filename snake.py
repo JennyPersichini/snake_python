@@ -84,13 +84,15 @@ while start:
         quadrato.goto(x = snake[-1].xcor(), y = snake[-1].ycor())
         snake.append(quadrato)
 
-# collisioni con il muro
+    # collisioni con il bordo
+    if snake[0].xcor() > 280 or snake[0].xcor < -280 or snake[0].ycor() > 280 or snake[0].ycor < -280:
+        star = False
 
+    # collisioni con se stesso
+    for q in snake[1:]:
+        if q.distance(snake[0]) < 10:
+            start = False
 
-
-
-
-# collisioni con se stesso
 
 
 
