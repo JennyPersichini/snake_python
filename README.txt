@@ -1,4 +1,4 @@
-snake
+SNAKE
 
 Tutti noi, nati e/o cresciuti negli anni '90 e primi 2000, conosciamo il giorno SNAKE...
 
