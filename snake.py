@@ -18,6 +18,19 @@ for pos in posizioni:
     s.goto(pos)
     snake.append(s)
 
+food = Turtle("circle")                          # il cibo --> istanza di Turtle, di forma circolare
+food.color("red")
+x_food = randint(-280, +280)                    # posizione random
+y_food = randint(-280, +280)
+food.penup()
+food.goto(x_food, y_food)
+
+
+
+
+
+
+
 def up():
     if snake[0].heading() != 270:              # heading --> indica lo stato del cursore, in questo caso, se vado in su, non posso andare in giù; non posso sovrappore i quadrati
         snake[0].setheading(90)                        # setheading --> come parametro avrà un numero che rappresenta l'angolo con cui il serpente si muoverà
@@ -63,9 +76,21 @@ while start:
         y = snake[num-1].ycor()
         snake[num].goto(x,y)
     snake[0].forward(20)
-    
+
+    if snake[0].distance(food) < 15:                                # distance --> valuta distanza tra due elementi, in questo caso, se la distanza tra testa del serpente e cibo è minore di 15, allora "abbiamo mangiato"
+        food.goto(randint(-280, 280), randint(-280, 280))             # quando mangia, il cibo si sposta, e il serpente si allunga (aggiungo un quadrato dopo la coda)
+        quadrato = Turtle("square")                                 # creo un'altra istanza di Turtle che sarà il quadrato che si aggiunge a fine serpente
+        quadrato.penup()
+        quadrato.goto(x = snake[-1].xcor(), y = snake[-1].ycor())
+        snake.append(quadrato)
+
+# collisioni con il muro
 
 
+
+
+
+# collisioni con se stesso
 
 
 
